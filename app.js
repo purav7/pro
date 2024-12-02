@@ -1,3 +1,11 @@
+require('dotenv').config(); // Load environment variables
+const mongoose = require('mongoose'); // Require mongoose
+
+// Connect to MongoDB
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('MongoDB connected'))
+  .catch(err => console.error('MongoDB connection error:', err));
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
